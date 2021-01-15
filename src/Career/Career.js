@@ -3,7 +3,7 @@ import './Career.css'
 
 const career = (props) => {
     return (
-        <div className="Course">
+        <div className="Course" style={props.style}>
             <p onClick={props.clicked}>Start working on your career with {props.course} before it's too late</p>
             <p>{props.children}</p>
             <p onClick={props.clickGoodLuck}>{props.luck}</p>

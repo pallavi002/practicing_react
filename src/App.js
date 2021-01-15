@@ -36,12 +36,34 @@ class App extends Component {
     })
   }
   render() {
+    const style = {
+      "width": "40%",
+      "margin": "auto",
+      "border": "2px solid black",
+      "box-shadow": "0 10px 20px aqua",
+      "border-radius": "100px",
+      "padding": "16px",
+      "font-style": "italic",
+      "font-weight": "600",
+      "text-align": "center",
+      "margin-bottom": "2%",
+      "margin-top": "2%"
+    } 
+    const buttonStyle = {
+      "height": "50px",
+      "width": "200px",
+      "background": "cadetblue",
+      "color": "white",
+      "padding": "10px",
+      "font-weight": "800",
+      "border-radius": "5px"
+    }
     return (
       <div className="App">
         <h1>Hi..Start working on your Career.</h1>
-        <button onClick={ () => this.switchCareerHandler("army")}>SWITCH CAREER</button>
+        <button onClick={ () => this.switchCareerHandler("army")} style={buttonStyle}>SWITCH CAREER</button>
         <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
-        <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} />
+        <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style}/>
         <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
       </div>
     );
