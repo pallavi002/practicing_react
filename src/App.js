@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hi..This is the life of pallavi.</h1>
+        <h1>Hi..Start working on your Career.</h1>
         <button onClick={ () => this.switchCareerHandler("army")}>SWITCH CAREER</button>
         <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
         <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} />
