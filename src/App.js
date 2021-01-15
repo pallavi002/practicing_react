@@ -8,25 +8,31 @@ class App extends Component {
       {id:"key01", course:"coding"},
       {id:"key02", course:"finance"},
       {id:"key03", course:"Dance"}
-    ]
+    ],
+    luck: "wish good luck?"
   }
-  switchCareerHandler = () => {
+  switchCareerHandler = (newCourse) => {
     this.setState({
       careers: [
-        {id:"key01", course:"Cyber Security"},
+        {id:"key01", course: newCourse},
         {id:"key02", course:"Human Resources"},
         {id:"key03", course:"Designer"}
       ]
+    })
+  }
+  printGoodLuck = () => {
+    this.setState({
+      luck: "Hey good luck !!"
     })
   }
   render() {
     return (
       <div className="App">
         <h1>Hi..This is the life of pallavi.</h1>
-        <button onClick={this.switchCareerHandler}>SWITCH CAREER</button>
+        <button onClick={this.switchCareerHandler.bind(this, "Cooking" )}>SWITCH CAREER</button>
         <Career course={this.state.careers[0].course} />
-        <Career course={this.state.careers[1].course} />
-        <Career course={this.state.careers[2].course} >Go for MBA</Career>
+        <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} />
+        <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
       </div>
     );
   }
