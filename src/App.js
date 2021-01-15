@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi..This is the life of pallavi.</h1>
-        <button onClick={this.switchCareerHandler.bind(this, "Cooking" )}>SWITCH CAREER</button>
+        <button onClick={ () => this.switchCareerHandler("army")}>SWITCH CAREER</button>
         <Career course={this.state.careers[0].course} />
         <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} />
         <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
