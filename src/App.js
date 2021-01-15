@@ -8,7 +8,8 @@ const App = (props) => {
         { id: "key01", course: "coding" },
         { id: "key02", course: "finance"},
         { id: "key03", course: "Dance" }
-      ]
+      ],
+      someelse: "hey how u doin'?"
   });
   const switchCareerHandler = () => {
     newCareerState({
@@ -19,7 +20,6 @@ const App = (props) => {
       ]
     })
   };
-
   return (
     <div className="App">
       <h1>Hi..This is the life of pallavi.</h1>
