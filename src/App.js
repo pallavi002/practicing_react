@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import career from './Career/Career';
 import Career from './Career/Career'
+import Hobby from './Hobby/hobby'
 
 class App extends Component {
   state = {
@@ -65,6 +65,7 @@ class App extends Component {
         <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
         <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style}/>
         <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
+        <Hobby />
       </div>
     );
   }
