@@ -70,7 +70,7 @@ class App extends Component {
         <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style}/>
         <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
         <Hobby hobby={this.state.hobby[0].name}/>
-        <Hobby hobby={this.state.hobby[1].name}/>
+        <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby>
       </div>
     );
   }
