@@ -10,7 +10,11 @@ class App extends Component {
       {id:"key02", course:"finance"},
       {id:"key03", course:"Dance"}
     ],
-    luck: "wish good luck?"
+    luck: "wish good luck?",
+    hobby : [
+      {name:"gaming"},
+      {name:"singing"}
+    ]
   }
   switchCareerHandler = (newCourse) => {
     this.setState({
@@ -65,7 +69,8 @@ class App extends Component {
         <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
         <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style}/>
         <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
-        <Hobby />
+        <Hobby hobby={this.state.hobby[0].name}/>
+        <Hobby hobby={this.state.hobby[1].name}/>
       </div>
     );
   }
