@@ -14,7 +14,8 @@ class App extends Component {
     hobby : [
       {name:"gaming"},
       {name:"singing"}
-    ]
+    ],
+    showCourses: false
   }
   switchCareerHandler = (newCourse) => {
     this.setState({
@@ -39,16 +40,18 @@ class App extends Component {
       ]
     })
   }
+  toggleCourseHandler = () => {
+    const doesShow = this.state.showCourses;
+    this.setState({showCourses: !doesShow});
+  }
   render() {
     const style = {
       "width": "40%",
       "margin": "auto",
       "border": "2px solid black",
       "box-shadow": "0 10px 20px aqua",
-      "border-radius": "100px",
       "padding": "16px",
       "font-style": "italic",
-      "font-weight": "600",
       "text-align": "center",
       "margin-bottom": "2%",
       "margin-top": "2%"
@@ -65,12 +68,16 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi..Start working on your Career.</h1>
-        <button onClick={ () => this.switchCareerHandler("army")} style={buttonStyle}>SWITCH CAREER</button>
-        <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
-        <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style}/>
-        <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
-        <Hobby hobby={this.state.hobby[0].name}/>
-        <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby>
+        <button onClick={this.toggleCourseHandler} style={buttonStyle}>TOGGLE CAREER</button>
+        { this.state.showCourses ?
+                  <div>
+                  <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
+                  <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style}/>
+                  <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
+                  <Hobby hobby={this.state.hobby[0].name}/>
+                  <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby>
+                  </div> :null
+        } 
       </div>
     );
   }
