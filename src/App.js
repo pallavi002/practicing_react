@@ -6,18 +6,18 @@ import Career from './Career/Career'
 class App extends Component {
   state = {
     careers : [
-      {id:"key01", course:"coding"},
-      {id:"key02", course:"finance"},
-      {id:"key03", course:"Dance"}
+      {id:"01", course:"coding"},
+      {id:"02", course:"finance"},
+      {id:"03", course:"Dance"}
     ],
     luck: "wish good luck?"
   }
   switchCareerHandler = (newCourse) => {
     this.setState({
       careers: [
-        {id:"key01", course: newCourse},
-        {id:"key02", course:"Human Resources"},
-        {id:"key03", course:"Designer"}
+        {id:"01", course: newCourse},
+        {id:"02", course:"Human Resources"},
+        {id:"03", course:"Designer"}
       ]
     })
   }
@@ -29,9 +29,9 @@ class App extends Component {
   careerChangedHandler = (event) => {
     this.setState({
       careers: [
-        {id:"key01", course: event.target.value},
-        {id:"key02", course:"Human Resources"},
-        {id:"key03", course:"Designer"}
+        {id:"01", course: event.target.value},
+        {id:"02", course:"Human Resources"},
+        {id:"03", course:"Designer"}
       ]
     })
   }
