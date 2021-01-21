@@ -1,28 +1,28 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Career from './Career/Career'
 import Hobby from './Hobby/hobby'
 
 class App extends Component {
   state = {
-    careers : [
-      {id:"01", course:"coding"},
-      {id:"02", course:"finance"},
-      {id:"03", course:"Dance"}
+    careers: [
+      { id: "01", course: "coding" },
+      { id: "02", course: "finance" },
+      { id: "03", course: "Dance" }
     ],
     luck: "wish good luck?",
-    hobby : [
-      {name:"gaming"},
-      {name:"singing"}
+    hobby: [
+      { name: "gaming" },
+      { name: "singing" }
     ],
     showCourses: false
   }
   switchCareerHandler = (newCourse) => {
     this.setState({
       careers: [
-        {id:"01", course: newCourse},
-        {id:"02", course:"Human Resources"},
-        {id:"03", course:"Designer"}
+        { id: "01", course: newCourse },
+        { id: "02", course: "Human Resources" },
+        { id: "03", course: "Designer" }
       ]
     })
   }
@@ -34,15 +34,15 @@ class App extends Component {
   careerChangedHandler = (event) => {
     this.setState({
       careers: [
-        {id:"01", course: event.target.value},
-        {id:"02", course:"Human Resources"},
-        {id:"03", course:"Designer"}
+        { id: "01", course: event.target.value },
+        { id: "02", course: "Human Resources" },
+        { id: "03", course: "Designer" }
       ]
     })
   }
   toggleCourseHandler = () => {
     const doesShow = this.state.showCourses;
-    this.setState({showCourses: !doesShow});
+    this.setState({ showCourses: !doesShow });
   }
   render() {
     const style = {
@@ -55,7 +55,7 @@ class App extends Component {
       "text-align": "center",
       "margin-bottom": "2%",
       "margin-top": "2%"
-    } 
+    }
     const buttonStyle = {
       "height": "50px",
       "width": "200px",
@@ -65,19 +65,23 @@ class App extends Component {
       "font-weight": "800",
       "border-radius": "5px"
     }
+    let courses = null;
+    if(this.state.showCourses) {
+      courses = (
+        <div>
+          <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
+          <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style} />
+          <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
+          <Hobby hobby={this.state.hobby[0].name} />
+          <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby>
+        </div>
+      )
+    }
     return (
       <div className="App">
         <h1>Hi..Start working on your Career.</h1>
         <button onClick={this.toggleCourseHandler} style={buttonStyle}>TOGGLE CAREER</button>
-        { this.state.showCourses ?
-                  <div>
-                  <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
-                  <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style}/>
-                  <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
-                  <Hobby hobby={this.state.hobby[0].name}/>
-                  <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby>
-                  </div> :null
-        } 
+        {courses}
       </div>
     );
   }
