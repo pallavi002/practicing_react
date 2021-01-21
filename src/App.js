@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import career from './Career/Career';
 import Career from './Career/Career'
 import Hobby from './Hobby/hobby'
 
@@ -17,15 +18,16 @@ class App extends Component {
     ],
     showCourses: false
   }
-  switchCareerHandler = (newCourse) => {
-    this.setState({
-      careers: [
-        { id: "01", course: newCourse },
-        { id: "02", course: "Human Resources" },
-        { id: "03", course: "Designer" }
-      ]
-    })
-  }
+  //not using currently
+  // switchCareerHandler = (newCourse) => {
+  //   this.setState({
+  //     careers: [
+  //       { id: "01", course: newCourse },
+  //       { id: "02", course: "Human Resources" },
+  //       { id: "03", course: "Designer" }
+  //     ]
+  //   })
+  // }
   printGoodLuck = () => {
     this.setState({
       luck: "Hey good luck !!"
@@ -43,6 +45,11 @@ class App extends Component {
   toggleCourseHandler = () => {
     const doesShow = this.state.showCourses;
     this.setState({ showCourses: !doesShow });
+  }
+  deleteCareerHandler = (careerIndex) => {
+    const careers = this.state.careers;
+    careers.splice(careerIndex, 1);
+    this.setState({careers:careers}) 
   }
   render() {
     const style = {
@@ -66,14 +73,17 @@ class App extends Component {
       "border-radius": "5px"
     }
     let courses = null;
-    if(this.state.showCourses) {
+    if (this.state.showCourses) {
       courses = (
         <div>
-          <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
-          <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style} />
-          <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
-          <Hobby hobby={this.state.hobby[0].name} />
-          <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby>
+          {this.state.careers.map(career => {
+            return <Career course={career.course} click={this.deleteCareerHandler} />
+          })}
+          {/* <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
+        <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style} />
+        <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
+        <Hobby hobby={this.state.hobby[0].name} />
+        <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby> */}
         </div>
       )
     }
