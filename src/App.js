@@ -47,7 +47,9 @@ class App extends Component {
     this.setState({ showCourses: !doesShow });
   }
   deleteCareerHandler = (careerIndex) => {
-    const careers = this.state.careers;
+    const careers = this.state.careers.slice();   //copying array instead of just pointing og
+    //you cane also do the below ES6 spread operator approach to copy array
+    //const careers = [...this.state.careers]
     careers.splice(careerIndex, 1);
     this.setState({careers:careers}) 
   }
@@ -76,8 +78,8 @@ class App extends Component {
     if (this.state.showCourses) {
       courses = (
         <div>
-          {this.state.careers.map(career => {
-            return <Career course={career.course} click={this.deleteCareerHandler} />
+          {this.state.careers.map((career, index) => {
+            return <Career course={career.course} click={() => this.deleteCareerHandler(index)} />
           })}
           {/* <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
         <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style} />
