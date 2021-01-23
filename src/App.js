@@ -80,7 +80,13 @@ class App extends Component {
     let courses = null;
     //dynamic styling
     // let classes = ["purple", "bold"].join(" ");
-    
+    const classes = [];
+    if (this.state.careers.length <= 2) {
+      classes.push("red")
+    }
+    if (this.state.careers.length > 2) {
+      classes.push("purple")
+    }
     if (this.state.showCourses) {
       courses = (
         <div>
