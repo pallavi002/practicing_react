@@ -78,6 +78,9 @@ class App extends Component {
       "border-radius": "5px"
     }
     let courses = null;
+    //dynamic styling
+    // let classes = ["purple", "bold"].join(" ");
+    
     if (this.state.showCourses) {
       courses = (
         <div>
@@ -95,7 +98,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>Hi..Start working on your Career.</h1>
+        <h1 className={classes}>Hi..Start working on your Career.</h1>
         <button onClick={this.toggleCourseHandler} style={buttonStyle}>TOGGLE CAREER</button>
         {courses}
       </div>
