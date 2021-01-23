@@ -3,7 +3,7 @@ import './App.css';
 import career from './Career/Career';
 import Career from './Career/Career';
 import Hobby from './Hobby/hobby';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
   state = {
@@ -38,11 +38,11 @@ class App extends Component {
     const changeId = this.state.careers.findIndex(c => {
       return c.id === id;
     });
-    const career = {...this.state.careers[changeId]};
+    const career = { ...this.state.careers[changeId] };
     career.course = event.target.value;
-    const careers = [...this.state.careers]; 
+    const careers = [...this.state.careers];
     careers[changeId] = career;
-    this.setState({careers: careers })
+    this.setState({ careers: careers })
 
   }
 
@@ -55,7 +55,7 @@ class App extends Component {
     //you cane also do the below ES6 spread operator approach to copy array
     //const careers = [...this.state.careers]
     careers.splice(careerIndex, 1);
-    this.setState({careers:careers}) 
+    this.setState({ careers: careers })
   }
   render() {
     const style = {
@@ -78,8 +78,8 @@ class App extends Component {
       fontWeight: "800",
       borderRadius: "5px",
       ":hover": {
-        backgroundColor:"lightgreen",
-        color:"black"
+        backgroundColor: "lightgreen",
+        color: "black"
       }
     }
     let courses = null;
@@ -96,7 +96,7 @@ class App extends Component {
       courses = (
         <div>
           {this.state.careers.map((career, index) => {
-            return <Career course={career.course} click={() => this.deleteCareerHandler(index)} key={career.id} careerChanged={(event) => this.careerChangedHandler(event, career.id)}/>
+            return <Career course={career.course} click={() => this.deleteCareerHandler(index)} key={career.id} careerChanged={(event) => this.careerChangedHandler(event, career.id)} />
           })}
           {/* <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
         <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style} />
@@ -107,16 +107,18 @@ class App extends Component {
       );
       buttonStyle.backgroundColor = 'red';
       buttonStyle[":hover"] = {
-        backgroundColor:"pink",
-        color:"black"
+        backgroundColor: "pink",
+        color: "black"
       }
     }
     return (
-      <div className="App">
-        <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
-        <button onClick={this.toggleCourseHandler} style={buttonStyle}>TOGGLE CAREER</button>
-        {courses}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
+          <button onClick={this.toggleCourseHandler} style={buttonStyle}>TOGGLE CAREER</button>
+          {courses}
+        </div>
+      </StyleRoot>
     );
   }
 }
