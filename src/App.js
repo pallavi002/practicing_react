@@ -34,16 +34,17 @@ class App extends Component {
     })
   }
   careerChangedHandler = (event, id) => {
-    let changeId = id;
-    if (this.state.careers.id == changeId) {
-      this.setState({
-        careers: [
-          { id: changeId, course: event.target.value }
-        ]
-      })
-    }
+    const changeId = this.state.careers.findIndex(c => {
+      return c.id === id;
+    });
+    const career = {...this.state.careers[changeId]};
+    career.course = event.target.value;
+    const careers = [...this.state.careers]; 
+    careers[changeId] = career;
+    this.setState({careers: careers })
 
   }
+
   toggleCourseHandler = () => {
     const doesShow = this.state.showCourses;
     this.setState({ showCourses: !doesShow });
