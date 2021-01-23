@@ -7,9 +7,9 @@ import Hobby from './Hobby/hobby'
 class App extends Component {
   state = {
     careers: [
-      { id: "01", course: "coding" },
-      { id: "02", course: "finance" },
-      { id: "03", course: "Dance" }
+      { id: "key01", course: "coding" },
+      { id: "key02", course: "finance" },
+      { id: "key03", course: "Dance" }
     ],
     luck: "wish good luck?",
     hobby: [
@@ -22,9 +22,9 @@ class App extends Component {
   // switchCareerHandler = (newCourse) => {
   //   this.setState({
   //     careers: [
-  //       { id: "01", course: newCourse },
-  //       { id: "02", course: "Human Resources" },
-  //       { id: "03", course: "Designer" }
+  //       { id: "key01", course: newCourse },
+  //       { id: "key02", course: "Human Resources" },
+  //       { id: "key03", course: "Designer" }
   //     ]
   //   })
   // }
@@ -33,14 +33,16 @@ class App extends Component {
       luck: "Hey good luck !!"
     })
   }
-  careerChangedHandler = (event) => {
-    this.setState({
-      careers: [
-        { id: "01", course: event.target.value },
-        { id: "02", course: "Human Resources" },
-        { id: "03", course: "Designer" }
-      ]
-    })
+  careerChangedHandler = (event, id) => {
+    let changeId = id;
+    if (this.state.careers.id == changeId) {
+      this.setState({
+        careers: [
+          { id: changeId, course: event.target.value }
+        ]
+      })
+    }
+
   }
   toggleCourseHandler = () => {
     const doesShow = this.state.showCourses;
@@ -79,7 +81,7 @@ class App extends Component {
       courses = (
         <div>
           {this.state.careers.map((career, index) => {
-            return <Career course={career.course} click={() => this.deleteCareerHandler(index)} />
+            return <Career course={career.course} click={() => this.deleteCareerHandler(index)} key={career.id} careerChanged={(event) => this.careerChangedHandler(event, career.id)}/>
           })}
           {/* <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
         <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style} />
