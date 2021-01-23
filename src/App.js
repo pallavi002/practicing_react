@@ -90,7 +90,8 @@ class App extends Component {
         <Hobby hobby={this.state.hobby[0].name} />
         <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby> */}
         </div>
-      )
+      );
+      buttonStyle.backgroundColor = 'red';
     }
     return (
       <div className="App">
