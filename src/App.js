@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import career from './Career/Career';
-import Career from './Career/Career'
-import Hobby from './Hobby/hobby'
+import Career from './Career/Career';
+import Hobby from './Hobby/hobby';
+import Radium from 'radium';
 
 class App extends Component {
   state = {
@@ -69,13 +70,17 @@ class App extends Component {
       "margin-top": "2%"
     }
     const buttonStyle = {
-      "height": "50px",
-      "width": "200px",
-      "background": "cadetblue",
-      "color": "white",
-      "padding": "10px",
-      "font-weight": "800",
-      "border-radius": "5px"
+      height: "50px",
+      width: "200px",
+      background: "cadetblue",
+      color: "white",
+      padding: "10px",
+      fontWeight: "800",
+      borderRadius: "5px",
+      ":hover": {
+        backgroundColor:"lightgreen",
+        color:"black"
+      }
     }
     let courses = null;
     //dynamic styling
@@ -101,10 +106,14 @@ class App extends Component {
         </div>
       );
       buttonStyle.backgroundColor = 'red';
+      buttonStyle[":hover"] = {
+        backgroundColor:"pink",
+        color:"black"
+      }
     }
     return (
       <div className="App">
-        <h1 className={classes}>Hi..Start working on your Career.</h1>
+        <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
         <button onClick={this.toggleCourseHandler} style={buttonStyle}>TOGGLE CAREER</button>
         {courses}
       </div>
@@ -112,4 +121,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);

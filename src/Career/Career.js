@@ -1,5 +1,6 @@
 import React from 'react';
-import './Career.css'
+import './Career.css';
+import Radium from 'radium';
 
 const career = (props) => {
     return (
@@ -12,4 +13,4 @@ const career = (props) => {
     )
 }
 
-export default career;
+export default Radium(career);
