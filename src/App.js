@@ -1,9 +1,10 @@
+import Radium from 'radium';
 import React, { Component } from 'react';
 import './App.css';
 import career from './Career/Career';
 import Career from './Career/Career';
 import Hobby from './Hobby/hobby';
-import Radium, { StyleRoot } from 'radium';
+// import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
   state = {
@@ -112,15 +113,16 @@ class App extends Component {
       }
     }
     return (
-      <StyleRoot>
+      // <StyleRoot>
         <div className="App">
           <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
           <button onClick={this.toggleCourseHandler} style={buttonStyle}>TOGGLE CAREER</button>
           {courses}
         </div>
-      </StyleRoot>
+      // </StyleRoot> 
     );
   }
 }
 
-export default Radium(App);
+// export default Radium(App);
+export default App;
