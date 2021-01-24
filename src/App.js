@@ -5,6 +5,21 @@ import career from './Career/Career';
 import Career from './Career/Career';
 import Hobby from './Hobby/hobby';
 // import Radium, { StyleRoot } from 'radium';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+height: 50px;
+width: 200px;
+background: green;
+color: white;
+padding: 10px;
+font-weight: 800px;
+border-radius: 5px;
+&:hover {
+  background-color: lightgreen;
+  color: black
+}`;
+
 
 class App extends Component {
   state = {
@@ -70,19 +85,19 @@ class App extends Component {
       "margin-bottom": "2%",
       "margin-top": "2%"
     }
-    const buttonStyle = {
-      height: "50px",
-      width: "200px",
-      background: "cadetblue",
-      color: "white",
-      padding: "10px",
-      fontWeight: "800",
-      borderRadius: "5px",
-      ":hover": {
-        backgroundColor: "lightgreen",
-        color: "black"
-      }
-    }
+    // const buttonStyle = {
+    //   height: "50px",
+    //   width: "200px",
+    //   background: "cadetblue",
+    //   color: "white",
+    //   padding: "10px",
+    //   fontWeight: "800",
+    //   borderRadius: "5px",
+    //   ":hover": {
+    //     backgroundColor: "lightgreen",
+    //     color: "black"
+    //   }
+    // }
     let courses = null;
     //dynamic styling
     // let classes = ["purple", "bold"].join(" ");
@@ -106,19 +121,19 @@ class App extends Component {
         <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby> */}
         </div>
       );
-      buttonStyle.backgroundColor = 'red';
-      buttonStyle[":hover"] = {
-        backgroundColor: "pink",
-        color: "black"
-      }
+      // buttonStyle.backgroundColor = 'red';
+      // buttonStyle[":hover"] = {
+      //   backgroundColor: "pink",
+      //   color: "black"
+      // }
     }
     return (
       // <StyleRoot>
-        <div className="App">
-          <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
-          <button onClick={this.toggleCourseHandler} style={buttonStyle}>TOGGLE CAREER</button>
-          {courses}
-        </div>
+      <div className="App">
+        <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
+          <StyledButton onClick={this.toggleCourseHandler} >TOGGLE CAREER</StyledButton>
+        {courses}
+      </div>
       // </StyleRoot> 
     );
   }
