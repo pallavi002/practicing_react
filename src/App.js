@@ -7,6 +7,7 @@ import Hobby from './Hobby/hobby';
 // import Radium, { StyleRoot } from 'radium';
 import styled from 'styled-components';
 
+//styled components stuff
 const StyledButton = styled.button`
 height: 50px;
 width: 200px;
@@ -16,7 +17,7 @@ padding: 10px;
 font-weight: 800px;
 border-radius: 5px;
 &:hover {
-  background-color: lightgreen;
+  background-color: ${props => props.alt ? `salmon`: `lightgreen`};
   color: black
 }`;
 
