@@ -73,3 +73,10 @@ const career = (props) => {
 }
 export default career;
 
+
+#conditional styling using props 
+
+background: ${props => props.alt ? `red`: `green`};    
+
+<StyledButton alt={this.state.showCourses} >TOGGLE CAREER</StyledButton>
+pretty cool stuff

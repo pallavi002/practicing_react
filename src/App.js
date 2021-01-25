@@ -10,7 +10,7 @@ import styled from 'styled-components';
 const StyledButton = styled.button`
 height: 50px;
 width: 200px;
-background: green;
+background: ${props => props.alt ? `red`: `green`};    
 color: white;
 padding: 10px;
 font-weight: 800px;
@@ -131,7 +131,7 @@ class App extends Component {
       // <StyleRoot>
       <div className="App">
         <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
-          <StyledButton onClick={this.toggleCourseHandler} >TOGGLE CAREER</StyledButton>
+          <StyledButton alt={this.state.showCourses} onClick={this.toggleCourseHandler} >TOGGLE CAREER</StyledButton>
         {courses}
       </div>
       // </StyleRoot> 
