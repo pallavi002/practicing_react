@@ -1,25 +1,7 @@
-import Radium from 'radium';
 import React, { Component } from 'react';
 import './App.css';
-import career from './Career/Career';
 import Career from './Career/Career';
 import Hobby from './Hobby/hobby';
-// import Radium, { StyleRoot } from 'radium';
-import styled from 'styled-components';
-
-const StyledButton = styled.button`
-height: 50px;
-width: 200px;
-background: ${props => props.alt ? `red`: `green`};    
-color: white;
-padding: 10px;
-font-weight: 800px;
-border-radius: 5px;
-&:hover {
-  background-color: lightgreen;
-  color: black
-}`;
-
 
 class App extends Component {
   state = {
@@ -114,11 +96,6 @@ class App extends Component {
           {this.state.careers.map((career, index) => {
             return <Career course={career.course} click={() => this.deleteCareerHandler(index)} key={career.id} careerChanged={(event) => this.careerChangedHandler(event, career.id)} />
           })}
-          {/* <Career course={this.state.careers[0].course} careerChanged={this.careerChangedHandler} />
-        <Career course={this.state.careers[1].course} clicked={this.switchCareerHandler.bind(this, "Just sleeping")} style={style} />
-        <Career course={this.state.careers[2].course} clickGoodLuck={this.printGoodLuck} luck={this.state.luck}>Go for MBA</Career>
-        <Hobby hobby={this.state.hobby[0].name} />
-        <Hobby hobby={this.state.hobby[1].name}>Testing hobby component children props.</Hobby> */}
         </div>
       );
       // buttonStyle.backgroundColor = 'red';
@@ -128,16 +105,13 @@ class App extends Component {
       // }
     }
     return (
-      // <StyleRoot>
       <div className="App">
         <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
-          <StyledButton alt={this.state.showCourses} onClick={this.toggleCourseHandler} >TOGGLE CAREER</StyledButton>
+          <button className="button" onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
         {courses}
       </div>
-      // </StyleRoot> 
     );
   }
 }
 
-// export default Radium(App);
 export default App;

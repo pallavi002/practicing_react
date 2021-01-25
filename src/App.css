@@ -49,3 +49,18 @@
 .red {
   color: rgb(212, 4, 4);
 }
+
+.button {
+  height: 50px;
+  width: 200px;
+  background: green;    
+  color: white;
+  padding: 10px;
+  font-weight: 800px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: lightgreen;
+  color: black
+};
