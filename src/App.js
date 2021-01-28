@@ -56,7 +56,7 @@ class App extends Component {
     this.setState({ careers: careers })
   }
   render() {
-    let buttonClass = [Styling.button];
+    let buttonClass = [];
     let courses = null;
     //dynamic styling
     // let classes = ["purple", "bold"].join(" ");
