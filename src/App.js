@@ -56,30 +56,7 @@ class App extends Component {
     this.setState({ careers: careers })
   }
   render() {
-    const style = {
-      "width": "40%",
-      "margin": "auto",
-      "border": "2px solid black",
-      "box-shadow": "0 10px 20px aqua",
-      "padding": "16px",
-      "font-style": "italic",
-      "text-align": "center",
-      "margin-bottom": "2%",
-      "margin-top": "2%"
-    }
-    // const buttonStyle = {
-    //   height: "50px",
-    //   width: "200px",
-    //   background: "cadetblue",
-    //   color: "white",
-    //   padding: "10px",
-    //   fontWeight: "800",
-    //   borderRadius: "5px",
-    //   ":hover": {
-    //     backgroundColor: "lightgreen",
-    //     color: "black"
-    //   }
-    // }
+    let buttonClass = [Styling.button];
     let courses = null;
     //dynamic styling
     // let classes = ["purple", "bold"].join(" ");
@@ -98,16 +75,12 @@ class App extends Component {
           })}
         </div>
       );
-      // buttonStyle.backgroundColor = 'red';
-      // buttonStyle[":hover"] = {
-      //   backgroundColor: "pink",
-      //   color: "black"
-      // }
+      buttonClass.push(Styling.Red);
     }
     return (
       <div className={Styling.App}>
         <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
-          <button className={Styling.button} onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
+          <button className={buttonClass.join(" ")} onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
         {courses}
       </div>
     );

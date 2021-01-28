@@ -27,4 +27,10 @@
 .button:hover {
   background-color: lightgreen;
   color: black
-};
+}
+.button.Red {
+  background-color: red;
+}
+.button.Red:hover {
+  background-color: salmon;
+}
