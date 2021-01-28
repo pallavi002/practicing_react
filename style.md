@@ -80,3 +80,28 @@ background: ${props => props.alt ? `red`: `green`};
 
 <StyledButton alt={this.state.showCourses} >TOGGLE CAREER</StyledButton>
 pretty cool stuff
+
+
+##CSS MODULES##
+
+run npm eject, to get all the underhood congifs so that we can tweak them.
+
+we have added this on line 109 in config folder in webpack.config.js
+
+        options: {
+          importLoaders: 1,
+          modules: true
+          // localIdentName: "[name]__[local]__[hash:base64:5]"
+        }
+
+now in App.js
+import Styling from './App.css';
+
+className={Styling.button}
+classes.push(Styling.purple)
+
+
+//button is a class in App.css
+
+//this helps to not globally affect the styling if done in css file.
+

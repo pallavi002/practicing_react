@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import Styling from './App.css';
 import Career from './Career/Career';
 import Hobby from './Hobby/hobby';
 
@@ -85,10 +85,10 @@ class App extends Component {
     // let classes = ["purple", "bold"].join(" ");
     const classes = [];
     if (this.state.careers.length <= 2) {
-      classes.push("red")
+      classes.push(Styling.red)
     }
     if (this.state.careers.length > 2) {
-      classes.push("purple")
+      classes.push(Styling.purple)
     }
     if (this.state.showCourses) {
       courses = (
@@ -105,9 +105,9 @@ class App extends Component {
       // }
     }
     return (
-      <div className="App">
+      <div className={Styling.App}>
         <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
-          <button className="button" onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
+          <button className={Styling.button} onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
         {courses}
       </div>
     );
