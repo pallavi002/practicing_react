@@ -105,3 +105,6 @@ classes.push(Styling.purple)
 
 //this helps to not globally affect the styling if done in css file.
 
+........IMPORTANT.........
+
+for new react versions, you dont need to change the config file, just rename the css file as App.module.css or Career.module.css
