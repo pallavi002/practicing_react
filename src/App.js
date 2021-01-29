@@ -80,7 +80,8 @@ class App extends Component {
     return (
       <div className={Styling.App}>
         <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
-          <button className={buttonClass.join(" ")} onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
+        <h2 className={Styling.try}>Keep trying</h2>
+        <button className={buttonClass.join(" ")} onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
         {courses}
       </div>
     );

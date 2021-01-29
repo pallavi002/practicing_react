@@ -35,3 +35,6 @@
 .App button.Red:hover {
   background-color: salmon;
 }
+.try {
+  color: yellow;
+}
