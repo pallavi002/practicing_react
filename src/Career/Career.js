@@ -1,24 +1,7 @@
 import React from 'react';
-import './Career.css';
+import styles from './Career.css';      //using css modules
 // import Radium from 'radium';
-import styled from 'styled-components';
-
-const StyledDiv = styled.div`
-width: 40%;
-margin: auto;
-border: 2px solid black;
-color:teal;
-box-shadow: 0 20px 30px rgb(133, 132, 132);
-border-radius: 100px;
-padding: 16px;
-font-style: italic;
-font-weight: 600;
-text-align: center;
-margin-bottom: 2%;
-margin-top: 2%;
-@media (max-width: 500px) {
-    width: "80%"
-}`
+// import styled from 'styled-components';
 
 const career = (props) => {
     const style = {
@@ -28,12 +11,12 @@ const career = (props) => {
     }
     return (
         // <div className="Course" style={style}>
-        <StyledDiv>
-            <p onClick={props.click} className="Headline">Start working on your career with {props.course} before it's too late</p>
+        <div className={styles.Course}>
+            <p onClick={props.click} className={styles.Headline}>Start working on your career with {props.course} before it's too late</p>
             <p>{props.children}</p>
             <p onClick={props.clickGoodLuck}>{props.luck}</p><br></br>
             Suggest Career: <input type="text" onChange={props.careerChanged}></input>
-        </StyledDiv>
+        </div>
 
     )
 }
