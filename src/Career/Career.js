@@ -29,8 +29,10 @@ const career = (props) => {
     return (
         // <div className="Course" style={style}>
         <StyledDiv>
-            <p onClick={props.click} className="Headline">Start working on your career with {props.course} before it's too late</p>
+            <p onClick={props.click} className="try">Start working on your career with {props.course} before it's too late</p>
             <p>{props.children}</p>
+        <h2 className="try">Try moreee!!!</h2>
+
             <p onClick={props.clickGoodLuck}>{props.luck}</p><br></br>
             Suggest Career: <input type="text" onChange={props.careerChanged}></input>
         </StyledDiv>

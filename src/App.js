@@ -132,6 +132,7 @@ class App extends Component {
       // <StyleRoot>
       <div className="App">
         <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
+        <h2 className="try">Try hard!!!</h2>
           <StyledButton alt={this.state.showCourses} onClick={this.toggleCourseHandler} >TOGGLE CAREER</StyledButton>
         {courses}
       </div>
