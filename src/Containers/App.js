@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Styling from './App.css';
-import Career from '../Component/Careers/Career/Career';
 import Hobby from '../Component/Hobby/hobby';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
+import Careers from '../Component/Careers/Careers'
 
 class App extends Component {
   state = {
@@ -71,10 +71,7 @@ class App extends Component {
     if (this.state.showCourses) {
       courses = (
         <div>
-          {this.state.careers.map((career, index) => {
-            return <ErrorBoundary key={career.id}>
-              <Career course={career.course} click={() => this.deleteCareerHandler(index)} careerChanged={(event) => this.careerChangedHandler(event, career.id)} />
-              </ErrorBoundary>})}
+          <Careers careers={this.state.careers} clickedDelete={this.deleteCareerHandler} changedCareer={this.careerChangedHandler}/>
         </div>
       );
       buttonClass.push(Styling.Red);
