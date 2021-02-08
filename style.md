@@ -107,4 +107,4 @@ classes.push(Styling.purple)
 
 ........IMPORTANT.........
 
-for new react versions, you dont need to change the config file, just rename the css file as App.module.css or Career.module.css
+for new react versions, you dont need to change the config file, just rename the css file as App.module.css or Career.module.css (NO NEED TO EJECT)

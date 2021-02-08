@@ -77,6 +77,10 @@ class App extends Component {
       );
       buttonClass.push(Styling.Red);
     }
+    const rnd = Math.random();
+    if(rnd > 0.7) {
+      throw new Error("Something went wrong!!")
+    }
     return (
       <div className={Styling.App}>
         <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
