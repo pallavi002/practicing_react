@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Styling from './App.css';
 import Career from './Career/Career';
 import Hobby from './Hobby/hobby';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
   state = {
@@ -71,23 +72,24 @@ class App extends Component {
       courses = (
         <div>
           {this.state.careers.map((career, index) => {
-            return <Career course={career.course} click={() => this.deleteCareerHandler(index)} key={career.id} careerChanged={(event) => this.careerChangedHandler(event, career.id)} />
-          })}
+            return <ErrorBoundary key={career.id}>
+              <Career course={career.course} click={() => this.deleteCareerHandler(index)} careerChanged={(event) => this.careerChangedHandler(event, career.id)} />
+              </ErrorBoundary>})}
         </div>
       );
       buttonClass.push(Styling.Red);
     }
-    const rnd = Math.random();
-    if(rnd > 0.7) {
-      throw new Error("Something went wrong!!")
-    }
-    return (
-      <div className={Styling.App}>
-        <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
-        <h2 className={Styling.try}>Keep trying</h2>
-        <button className={buttonClass.join(" ")} onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
-        {courses}
-      </div>
+    // const rnd = Math.random();
+    // if(rnd > 0.7) {
+    //   throw new Error("Something went wrong!!")
+    // }
+    return (      
+        <div className={Styling.App}>
+          <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
+          <h2 className={Styling.try}>Keep trying</h2>
+          <button className={buttonClass.join(" ")} onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
+          {courses}
+        </div>
     );
   }
 }
