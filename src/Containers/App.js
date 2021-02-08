@@ -3,6 +3,7 @@ import Styling from './App.css';
 import Hobby from '../Component/Hobby/hobby';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 import Careers from '../Component/Careers/Careers'
+import Cockpit from '../Component/Cockpit/Cockpit'
 
 class App extends Component {
   state = {
@@ -57,24 +58,13 @@ class App extends Component {
     this.setState({ careers: careers })
   }
   render() {
-    let buttonClass = [];
     let courses = null;
     //dynamic styling
     // let classes = ["purple", "bold"].join(" ");
-    const classes = [];
-    if (this.state.careers.length <= 2) {
-      classes.push(Styling.red)
-    }
-    if (this.state.careers.length > 2) {
-      classes.push(Styling.purple)
-    }
     if (this.state.showCourses) {
       courses = (
-        <div>
           <Careers careers={this.state.careers} clickedDelete={this.deleteCareerHandler} changedCareer={this.careerChangedHandler}/>
-        </div>
       );
-      buttonClass.push(Styling.Red);
     }
     // const rnd = Math.random();
     // if(rnd > 0.7) {
@@ -82,9 +72,7 @@ class App extends Component {
     // }
     return (      
         <div className={Styling.App}>
-          <h1 className={classes.join(" ")}>Hi..Start working on your Career.</h1>
-          <h2 className={Styling.try}>Keep trying</h2>
-          <button className={buttonClass.join(" ")} onClick={this.toggleCourseHandler} >TOGGLE CAREER</button>
+          <Cockpit careers={this.state.careers} showCourses={this.state.showCourses} clickedToggle={this.toggleCourseHandler}/>
           {courses}
         </div>
     );
