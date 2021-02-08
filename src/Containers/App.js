@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Styling from './App.css';
-import Career from './Career/Career';
-import Hobby from './Hobby/hobby';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import Career from '../Component/Careers/Career/Career';
+import Hobby from '../Component/Hobby/hobby';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
   state = {
