@@ -6,6 +6,11 @@ import Careers from '../Component/Careers/Careers'
 import Cockpit from '../Component/Cockpit/Cockpit'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log("[App.js] Constructor")
+  }
+
   state = {
     careers: [
       { id: "key01", course: "coding" },
@@ -19,6 +24,15 @@ class App extends Component {
     ],
     showCourses: false
   }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("[App.js] getDerivedStateFromProps", props)
+    return state;
+  }
+
+  componentDidMount() {
+    console.log("[App.js], componentDidMount")
+  }
   //not using currently
   // switchCareerHandler = (newCourse) => {
   //   this.setState({
@@ -29,6 +43,7 @@ class App extends Component {
   //     ]
   //   })
   // }
+
   printGoodLuck = () => {
     this.setState({
       luck: "Hey good luck !!"
@@ -58,23 +73,24 @@ class App extends Component {
     this.setState({ careers: careers })
   }
   render() {
+    console.log("[App.js] render");
     let courses = null;
     //dynamic styling
     // let classes = ["purple", "bold"].join(" ");
     if (this.state.showCourses) {
       courses = (
-          <Careers careers={this.state.careers} clickedDelete={this.deleteCareerHandler} changedCareer={this.careerChangedHandler}/>
+        <Careers careers={this.state.careers} clickedDelete={this.deleteCareerHandler} changedCareer={this.careerChangedHandler} />
       );
     }
     // const rnd = Math.random();
     // if(rnd > 0.7) {
     //   throw new Error("Something went wrong!!")
     // }
-    return (      
-        <div className={Styling.App}>
-          <Cockpit title={this.props.appTitle} careers={this.state.careers} showCourses={this.state.showCourses} clickedToggle={this.toggleCourseHandler}/>
-          {courses}
-        </div>
+    return (
+      <div className={Styling.App}>
+        <Cockpit title={this.props.appTitle} careers={this.state.careers} showCourses={this.state.showCourses} clickedToggle={this.toggleCourseHandler} />
+        {courses}
+      </div>
     );
   }
 }
