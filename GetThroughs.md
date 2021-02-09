@@ -17,7 +17,10 @@ const careers = (props) => (
 )
 #####
 
-Component Lifecycle Hooks
+..Component Lifecycle Hooks..
+
+lifecycle hooks are used for component creation.
+
 1. constructor-used for basic initialization or setting up an initial state.
   
   constructor(props) {
@@ -56,3 +59,30 @@ inside constructor u can add the state, if u add state outside constructor, reac
   }
 
 componentWillMount prepares the states correctly, that job is done in getDerivedStateFromProps so it's not used much now.
+
+#
+
+for props in lifecycle hooks the steps are:
+
+1. Initialization of state.
+    static getDerivedStateFromProps(props, state) {
+        console.log("[Careers.js] getDerivedStateFromProps.");
+        return state;
+    }
+2. Update any props based before hand.
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("[Career.js] shouldComponentUpdate.")
+        return true;
+    }
+    should return true or false.
+3. If u want to get back to prev state after updating prop u can do this. You can store the data before update and then use it after update using componentDidUpdate.
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log("[Career.js] getSnapshotBeforeUpdate.");
+        return null;
+    }
+4. It will update everything once any changes in the state done.
+    componentDidUpdate(prevProps, prevState, snapShot) {
+        console.log("[Career.js] componentDidUpdate.")
+    }
+
+point 3, if u take snapshot and then update there is one more lifecycle hook for that before updating. componentWillReceiveProps. Removed from new react versions.
