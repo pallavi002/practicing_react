@@ -72,7 +72,7 @@ class App extends Component {
     // }
     return (      
         <div className={Styling.App}>
-          <Cockpit careers={this.state.careers} showCourses={this.state.showCourses} clickedToggle={this.toggleCourseHandler}/>
+          <Cockpit title={this.props.appTitle} careers={this.state.careers} showCourses={this.state.showCourses} clickedToggle={this.toggleCourseHandler}/>
           {courses}
         </div>
     );
